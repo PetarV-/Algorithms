@@ -26,7 +26,7 @@ int niz[MAX_N];
 //Bubble sort algoritam za sortiranje niza
 //Slozenost O(n^2)
 
-void bubbleSort()
+inline void bubbleSort()
 {
     bool swapped;
     int it = 0;
