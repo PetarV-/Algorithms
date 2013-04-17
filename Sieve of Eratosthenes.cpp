@@ -28,14 +28,14 @@ bool mark[MAX_N];
 
 inline void sieve(int B)
 {
-     if (B > 1) primes.push_back(2);
-     for (int i=3;i<=B;i+=2)
-     {
-         if (!mark[i])
-         {
-           mark[i]=true;
-           primes.push_back(i);
-           if (i<=sqrt(B)+1)  for (int j=i*i;j<=B;j+=i) mark[j]=true;
-         }
-     }
+    if (B > 1) primes.push_back(2);
+    for (int i=3;i<=B;i+=2)
+    {
+        if (!mark[i])
+        {
+            mark[i]=true;
+            primes.push_back(i);
+            if (i<=sqrt(B)+1)  for (int j=i*i;j<=B;j+=i) mark[j]=true;
+        }
+    }
 }
