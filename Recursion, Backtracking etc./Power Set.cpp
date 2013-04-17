@@ -20,7 +20,7 @@ using namespace std;
 typedef long long lld;
 
 //Metoda koja generise partitivni skup nekog skupa
-//Slozenost O(2^n)
+//Slozenost: O(2^n)
 
 int n;
 int skup[100];
