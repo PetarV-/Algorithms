@@ -2,6 +2,7 @@
  Petar 'PetarV' Velickovic
  Algorithm: K-Combinations
 */
+
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
