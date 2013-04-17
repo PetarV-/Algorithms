@@ -24,7 +24,7 @@ int skup[100];
 bool inSet[100];
 
 //Program koji generise sve kombinacije od po K elemenata datog skupa
-//Slozenost O(2^n)
+//Slozenost: O((n choose k))
 
 void kCombinations(int pos, int amt)
 {
