@@ -34,8 +34,8 @@ void kCombinations(int pos, int amt)
          printf("\n");
          return;
      }
-     recurse(pos+1,amt+1);
-     recurse(pos+1,amt);
+     kCombinations(pos+1,amt+1);
+     kCombinations(pos+1,amt);
 }
 
 int main()
