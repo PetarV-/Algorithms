@@ -62,11 +62,20 @@ inline int BellmanFord(int source)
 
 int main()
 {
-    v = 4, e = 4;
-    E[0].x = 1, E[0].y = 2, E[0].weight = 5;
-    E[1].x = 2, E[1].y = 3, E[1].weight = 5;
-    E[2].x = 3, E[2].y = 4, E[2].weight = 5;
-    E[3].x = 4, E[3].y = 2, E[3].weight = 6;
+    v = 4, e = 8;
+    
+    E[0].x = 0, E[0].y = 1, E[0].weight = 5;
+    E[1].x = 1, E[1].y = 0, E[1].weight = 5;
+    
+    E[2].x = 1, E[2].y = 2, E[2].weight = 5;
+    E[3].x = 2, E[3].y = 1, E[3].weight = 5;
+    
+    E[4].x = 2, E[4].y = 3, E[4].weight = 5;
+    E[5].x = 3, E[5].y = 2, E[5].weight = 5;
+    
+    E[6].x = 3, E[6].y = 1, E[6].weight = 6;
+    E[7].x = 1, E[7].y = 3, E[7].weight = 6;
+    
     BellmanFord(0);
     printf("%d\n",dist[3]);
     return 0;
