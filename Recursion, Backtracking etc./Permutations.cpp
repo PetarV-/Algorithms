@@ -48,12 +48,10 @@ void generatePermutations(int pos)
 
 int main()
 {
-    n = 5;
+    n = 3;
     niz[0] = 1;
     niz[1] = 2;
     niz[2] = 3;
-    niz[3] = 4;
-    niz[4] = 5;
     generatePermutations(0);
     return 0;
 }
