@@ -22,7 +22,7 @@ typedef long long lld;
 int n, k;
 int skup[100];
 
-//Program koji generise sve kombinacije od po K elemenata datog skupa
+//Algoritam koji generise sve kombinacije od po K elemenata datog skupa
 //Slozenost O(2^n)
 
 void kCombinations(int pos, int amt)
