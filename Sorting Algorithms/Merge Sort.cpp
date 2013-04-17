@@ -26,7 +26,7 @@ int niz[MAX_N], tmp[MAX_N];
 //Merge sort algoritam za sortiranje niza
 //Slozenost: O(n log n)
 
-void merge(int left, int mid, int right)
+inline void merge(int left, int mid, int right)
 {
     int h,i,j,k;
     h = left;
