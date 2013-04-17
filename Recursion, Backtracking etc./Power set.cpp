@@ -23,13 +23,18 @@ typedef long long lld;
 //Slozenost O(2^n)
 
 int n;
-int set[100];
-vector<vector<int> > pSet;
+int skup[100];
+bool inSet[100];
 
-void powerSet(int pos, vector<int> curr;)
+void powerSet(int pos)
 {
-     if (pos==n) pSet.push_back(curr);
-     recurse(pos+1,curr);
-     curr.push_back(set[pos]);
-     recurse(pos+1,curr);
+     if (pos==n)
+     {
+         for (int i=0;i<n;i++) if (inSet[i]) printf("%d ",skup[i]);
+         printf("\n"):
+     }
+     inSet[pos] = false;
+     powerSet(pos+1);
+     inSet[pos] = true;
+     powerSet(pos+1);
 }
