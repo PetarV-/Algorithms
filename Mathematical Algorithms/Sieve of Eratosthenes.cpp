@@ -39,3 +39,10 @@ inline void sieve(int B)
         }
     }
 }
+
+int main()
+{
+    sieve(30);
+    for (int i=0;i<primes.size();i++) printf("%d\n",primes[i]);
+    return 0;
+}
