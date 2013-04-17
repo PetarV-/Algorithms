@@ -21,21 +21,24 @@ typedef long long lld;
 
 int n, k;
 int skup[100];
+bool inSet[100];
 
-//Algoritam koji generise sve kombinacije od po K elemenata datog skupa
+//Program koji generise sve kombinacije od po K elemenata datog skupa
 //Slozenost O(2^n)
 
 void kCombinations(int pos, int amt)
 {
-     if (n-pos<k-amt) return;
-     if (amt==k)
-     {
-         for (int i=0;i<n;i++) if (inSet[i]) printf("%d ",skup[i]);
-         printf("\n");
-         return;
-     }
-     kCombinations(pos+1,amt+1);
-     kCombinations(pos+1,amt);
+    if (n-pos<k-amt) return;
+    if (amt==k)
+    {
+        for (int i=0;i<n;i++) if (inSet[i]) printf("%d ",skup[i]);
+        printf("\n");
+        return;
+    }
+    inSet[pos] = true;
+    kCombinations(pos+1,amt+1);
+    inSet[pos] = false;
+    kCombinations(pos+1,amt);
 }
 
 int main()
