@@ -26,7 +26,7 @@ int niz[MAX_N];
 int Count[MAX_K];
 
 //Counting sort algoritam za sortiranje niza pozitivnih celih brojeva ne vecih od MAX_K
-//Slozenost O(n + k)
+//Slozenost: O(n + k)
 
 void countingSort()
 {
