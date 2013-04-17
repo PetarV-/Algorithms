@@ -1,7 +1,7 @@
 /*
  Petar 'PetarV' Velickovic
  Algorithm: Quicksort
- */
+*/
 
 #include <stdio.h>
 #include <math.h>
