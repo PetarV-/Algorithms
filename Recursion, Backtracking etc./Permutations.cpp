@@ -25,7 +25,7 @@ bool inPerm[100];
 int currPerm[100];
 
 //Algoritam koji generise sve permutacije datog niza
-//Slozenost O(n!)
+//Slozenost: O(n!)
 
 void generatePermutations(int pos)
 { 
