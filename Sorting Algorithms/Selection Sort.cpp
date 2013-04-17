@@ -26,7 +26,7 @@ int niz[MAX_N];
 //Selection sort algoritam za sortiranje niza
 //Slozenost O(n^2)
 
-void selectionSort()
+inline void selectionSort()
 {
     for (int i=0;i<n-1;i++)
     {
