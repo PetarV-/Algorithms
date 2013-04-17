@@ -32,16 +32,16 @@ void bubbleSort()
     int it = 0;
     do
     {
-      swapped = false;
-      for (int i=0;i<n-it-1;i++)
-      {
-          if (niz[i] > niz[i+1])
-          {
-              swap(niz[i], niz[i+1]);
-              swapped = true;
-          }
-      }
-      it++;
+        swapped = false;
+        for (int i=0;i<n-it-1;i++)
+        {
+            if (niz[i] > niz[i+1])
+            {
+                swap(niz[i], niz[i+1]);
+                swapped = true;
+            } 
+        }
+        it++;
     } while (swapped);
 }
 
