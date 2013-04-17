@@ -24,7 +24,7 @@ int n;
 int niz[MAX_N];
 
 //Insertion sort algoritam za sortiranje niza
-//Slozenost O(n^2)
+//Slozenost: O(n^2)
 
 inline void insertionSort()
 {
