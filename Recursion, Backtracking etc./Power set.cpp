@@ -28,13 +28,24 @@ bool inSet[100];
 
 void powerSet(int pos)
 {
-     if (pos==n)
-     {
-         for (int i=0;i<n;i++) if (inSet[i]) printf("%d ",skup[i]);
-         printf("\n"):
-     }
-     inSet[pos] = false;
-     powerSet(pos+1);
-     inSet[pos] = true;
-     powerSet(pos+1);
+    if (pos==n)
+    {
+        for (int i=0;i<n;i++) if (inSet[i]) printf("%d ",skup[i]);
+        printf("\n");
+        return;
+    }
+    inSet[pos] = false;
+    powerSet(pos+1);
+    inSet[pos] = true;
+    powerSet(pos+1);
+}
+
+int main()
+{
+    n = 3;
+    skup[0] = 1;
+    skup[1] = 2;
+    skup[2] = 3;
+    powerSet(0);
+    return 0;
 }
