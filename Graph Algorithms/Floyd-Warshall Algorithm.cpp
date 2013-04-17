@@ -26,7 +26,7 @@ int n;
 int dist[MAX_N][MAX_N];
 int flojd[MAX_N][MAX_N];
 
-//Floyd-Warshallov algoritam za trazenje najkracih puteva svih parova cvorova unutar grafa
+//Floyd-Warshallov algoritam za trazenje duzina najkracih puteva svih parova cvorova u grafu
 //Slozenost: O(V^3)
 
 inline void FloydWarshall()
