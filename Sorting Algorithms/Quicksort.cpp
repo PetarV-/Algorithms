@@ -16,7 +16,7 @@
 #include <set>
 #include <map>
 #include <complex>
-#define MAX_N 5001
+#define MAX_N 1000001
 using namespace std;
 typedef long long lld;
 
