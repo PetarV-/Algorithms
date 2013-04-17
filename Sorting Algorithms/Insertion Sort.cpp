@@ -26,7 +26,7 @@ int niz[MAX_N];
 //Insertion sort algoritam za sortiranje niza
 //Slozenost O(n^2)
 
-void insertionSort()
+inline void insertionSort()
 {
     for (int i=1;i<n;i++)
     {
