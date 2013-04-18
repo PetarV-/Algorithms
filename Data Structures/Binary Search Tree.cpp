@@ -32,14 +32,20 @@ struct TreeNode
         left = NULL;
         right = NULL;
     }
-} root;
+};
+TreeNode *root;
 
 //Naivna implementacija stabla binarne pretrage
 //Slozenost: O(log N) po operaciji
 
 inline void insert(int val)
 {
-    TreeNode *ptr = &root;
+    if (root == NULL)
+    {
+        root = new TreeNode(val);
+        return;
+    }
+    TreeNode *ptr = root;
     while (true)
     {
         if (val < ptr->key)
@@ -66,7 +72,7 @@ inline void insert(int val)
 
 inline bool find(int val)
 {
-    TreeNode *ptr = &root;
+    TreeNode *ptr = root;
     while (true)
     {
         if (val < ptr->key)
@@ -132,7 +138,7 @@ int main()
     insert(13);
     printf("%d\n",find(4) ? 1 : 0);
     printf("%d\n",find(0) ? 1 : 0);
-    Delete(&root, 8);
+    Delete(root, 8);
     printf("%d\n",find(8) ? 1 : 0);
     printf("%d\n",find(13) ? 1 : 0);
     return 0;
