@@ -35,7 +35,7 @@ int LowLink[MAX_N];
 int component[MAX_N];
 int numComponents;
 
-//Tarjanov algoritam za racunanje strogo povezanih komponenti datog usmerenog grafa
+//Tarjanov algoritam za racunanje jako povezanih komponenti datog usmerenog grafa
 //Slozenost: O(V + E)
 
 void tarjanDFS(int i)
