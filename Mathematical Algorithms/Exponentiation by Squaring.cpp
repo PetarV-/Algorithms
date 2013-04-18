@@ -46,4 +46,5 @@ int main()
 {
     printf("%lld\n",mod_pow(5,2,10));
     printf("%lld\n",mod_inv(1423,13));
+    return 0;
 }
