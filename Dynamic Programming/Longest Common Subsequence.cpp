@@ -54,4 +54,5 @@ int main()
     A = "aleks";
     B = "abcdef";
     printf("%d\n",LCS());
+    return 0;
 }
