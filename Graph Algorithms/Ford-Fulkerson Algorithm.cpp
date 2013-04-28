@@ -1,6 +1,6 @@
 /*
  Petar 'PetarV' Velickovic
- Algorithm: Ford-Fulkerson
+ Algorithm: Ford-Fulkerson Algorithm
 */
 
 #include <stdio.h>
