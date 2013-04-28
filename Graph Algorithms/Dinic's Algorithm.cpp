@@ -21,7 +21,6 @@
 using namespace std;
 typedef long long lld;
 
-
 struct Node
 {
     vector<int> adj;
