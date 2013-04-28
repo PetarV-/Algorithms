@@ -40,7 +40,6 @@ int s, t;
 inline int DFS()
 {
     int ret = 0;
-    for (int i=1;i<=v;i++) parent[i] = 0;
     stack<int> dfs_stek;
     stack<int> minCapacity;
     parent[s] = -1;
