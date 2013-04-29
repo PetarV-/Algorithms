@@ -22,7 +22,7 @@ typedef long long lld;
 //Algoritam za stepenovanje kvadriranjem po datom modulu i za racunanje modularnog inverza (pod uslovom da je modul prost)
 //Slozenost O(log N)
 
-lld mod_pow(lld num, lld pow, lld mod)
+inline lld mod_pow(lld num, lld pow, lld mod)
 {
     lld ret = 1;
     while (pow)
@@ -37,7 +37,7 @@ lld mod_pow(lld num, lld pow, lld mod)
     return ret;
 }
 
-lld mod_inv(lld num, lld mod)
+inline lld mod_inv(lld num, lld mod)
 {
     return mod_pow(num, mod-2, mod);
 }
