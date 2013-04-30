@@ -19,9 +19,6 @@
 using namespace std;
 typedef long long lld;
 
-//Algoritam koji odredjuje da li postoji presek izmedju dve 2D duzi (AB i CD)
-//Slozenost: O(1)
-
 struct Point
 {
     double X, Y;
@@ -31,6 +28,9 @@ struct Point
         this->Y = y;
     }
 };
+
+//Algoritam koji odredjuje da li postoji presek izmedju dve 2D duzi (AB i CD)
+//Slozenost: O(1)
 
 inline double crossProduct(Point a, Point b, Point c)
 {
