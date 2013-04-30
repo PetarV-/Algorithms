@@ -39,7 +39,7 @@ int n;
 Point Polygon[MAX_N];
 Point Q;
 
-//Algoritam koji odredjuje da li je tacka Q unutar datog konveksnog mnogougla
+//Algoritam koji odredjuje da li je tacka Q unutar datog konveksnog mnogougla (podrazumeva se da su temena data u obrnotum smeru kazaljke na satu)
 //Moze se lako prosiriti u test preseka dva konveksna mnogougla
 //Slozenost: O(log N)
  
