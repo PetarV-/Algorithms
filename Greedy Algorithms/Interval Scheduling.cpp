@@ -1,6 +1,6 @@
 /*
  Petar 'PetarV' Velickovic
- Algorithm: Longest Common Subsequence
+ Algorithm: Interval Scheduling
 */
 
 #include <stdio.h>
@@ -16,43 +16,54 @@
 #include <set>
 #include <map>
 #include <complex>
-#define MAX_N 1001
+#define MAX_N 100001
 using namespace std;
 typedef long long lld;
 
-int n, m;
-string A, B;
-int dp[MAX_N][MAX_N];
+int n;
 
-//Algoritam koji racuna najduzu zajednicku podsekvencu dva stringa
-//Slozenost: O(n*m)
-
-inline int LCS()
+struct Interval
 {
-    for (int i=0;i<=n;i++) dp[i][0] = 0;
-    for (int j=0;j<=m;j++) dp[0][j] = 0;
-    for (int i=1;i<=n;i++)
+    int L, R;
+    bool operator <(const Interval &a) const
     {
-        for (int j=1;j<=m;j++)
+        if (R != a.R) return (R < a.R);
+        return (L < a.L);
+    }
+};
+Interval I[MAX_N];
+
+//Algoritam koji odredjuje maksimalan broj disjunktnih intervala iz nekog skupa
+//Slozenost: O(n log n)
+
+inline int ScheduleIntervals()
+{
+    sort(I, I+n);
+    
+    int ret = 1;
+    int currentEnd = I[0].R;
+    
+    for (int i=1;i<n;i++)
+    {
+        if (I[i].L >= currentEnd)
         {
-            if (A[i-1] == B[j-1])
-            {
-                dp[i][j] = dp[i-1][j-1] + 1;
-            }
-            else
-            {
-                dp[i][j] = max(dp[i][j-1], dp[i-1][j]);
-            }
+            currentEnd = I[i].R;
+            ret++;
         }
     }
-    return dp[n][m];
+    
+    return ret;
 }
 
 int main()
 {
-    n = 5, m = 6;
-    A = "aleks";
-    B = "abcdef";
-    printf("%d\n",LCS());
+    n = 4;
+    
+    I[0].L = -1, I[0].R = 1;
+    I[1].L = 0, I[1].R = 5;
+    I[2].L = 2, I[2].R = 3;
+    I[3].L = 5, I[3].R = 9;
+    
+    printf("%d\n",ScheduleIntervals());
     return 0;
 }
