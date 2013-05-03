@@ -6,9 +6,6 @@
 
 #include <stdio.h>
 #include <string>
-#include <algorithm>
-#include <iostream>
-
 #define MAX_N 1001
 using namespace std;
 
@@ -48,6 +45,10 @@ inline int LCS()
     return dp[n][m];
 }
 
+// Backtracks through the dynamic programming to reconstruct
+// the subsequence in question rather than just its length
+// For all cases (A[i-1] == B[j-1]) on the backtrack (route == 3)
+// places this character at the end of the string still to be found
 inline char *getLCS() {
     int x = n, y = m;
     int length = dp[n][m];
@@ -67,9 +68,7 @@ inline char *getLCS() {
             return ""; //invalid input
         }
     }
-
-    return seq;
-    
+    return seq;    
 }
 
 int main()
