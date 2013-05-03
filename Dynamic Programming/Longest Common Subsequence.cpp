@@ -61,7 +61,7 @@ inline string getLCS()
             ii--; jj--;
         }
         else if (dp[ii-1][jj] > dp[ii][jj-1]) ii--;
-        else j--;
+        else jj--;
     }
     while (!S.empty()) 
     {
