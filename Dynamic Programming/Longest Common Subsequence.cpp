@@ -71,6 +71,30 @@ inline char *getLCS() {
     return seq;    
 }
 
+/* approach not requiring additional quadratic memory - by Petar Velickovic */
+inline string getLCS()
+{
+    string ret;
+    stack<char> S;
+    int ii = n, jj = m;
+    while (ii != 0 && jj != 0)
+    {
+        if (A[ii-1] == B[jj-1])
+        {
+            S.push(A[ii-1]);
+            ii--; jj--;
+        }
+        else if (dp[ii-1][jj] > dp[ii][jj-1]) ii--;
+        else jj--;
+    }
+    while (!S.empty()) 
+    {
+        ret += S.top(); 
+        S.pop();
+    }
+    return ret;
+}
+
 int main()
 {
     n = 5, m = 6;
