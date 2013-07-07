@@ -53,7 +53,7 @@ int main()
     update(3, 1);
     update(5, 5);
     update(2, -2);
-    update(5, -1);
+    update(5, -2);
     printf("%d\n",read(6));
     return 0;
 }
