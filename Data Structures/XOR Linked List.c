@@ -5,21 +5,7 @@
 
 #include <stdio.h>
 #include <stdint.h>
-#include <math.h>
-#include <string.h>
-#include <time.h>
-#include <iostream>
-#include <vector>
-#include <list>
-#include <string>
-#include <algorithm>
-#include <queue>
-#include <stack>
-#include <set>
-#include <map>
-#include <complex>
-typedef long long lld;
-using namespace std;
+#include <stdlib.h>
 
 typedef struct XORNode
 {
