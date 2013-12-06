@@ -36,7 +36,7 @@ class Proto_vEBTree
     
     bool low, high; // used only when u == 2
     int n; // alternative for speeding up proto-vEB-Delete
-    
+public:
     Proto_vEBTree(llu);
     
     bool member(llu);
