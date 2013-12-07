@@ -1,7 +1,7 @@
 /*
  Petar 'PetarV' Velickovic
  Data Structure: Fibonacci Heap
- */
+*/
 
 #include <stdio.h>
 #include <math.h>
@@ -28,7 +28,7 @@ typedef unsigned long long llu;
  Complexity:    O(1) for insert, first and merge
  O(1) amortized for decreaseKey
  O(log N) amortized for extractMin and delete
- */
+*/
 
 struct FibNode
 {
