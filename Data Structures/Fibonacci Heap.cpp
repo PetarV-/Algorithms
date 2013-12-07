@@ -1,7 +1,7 @@
 /*
  Petar 'PetarV' Velickovic
  Data Structure: Fibonacci Heap
-*/
+ */
 
 #include <stdio.h>
 #include <math.h>
@@ -26,19 +26,30 @@ typedef unsigned long long llu;
  Fibonacci Heap data structure satisfying the heap property, with highly efficient asymptotic bounds.
  Useful for a priority queue implementation in Dijkstra's and Prim's algorithms.
  Complexity:    O(1) for insert, first and merge
-                O(1) amortized for decreaseKey
-                O(log N) amortized for extractMin and delete
-*/
+ O(1) amortized for decreaseKey
+ O(log N) amortized for extractMin and delete
+ */
 
 struct FibNode
 {
     int key;
+    int node_id;
     bool marked;
     int degree;
     FibNode *b, *f, *p, *c;
     
-    FibNode(int key)
+    FibNode()
     {
+        this -> node_id = 0;
+        this -> key = 0;
+        this -> marked = false;
+        this -> degree = 0;
+        this -> b = this -> f = this -> p = this -> c = NULL;
+    }
+    
+    FibNode(int node_id, int key)
+    {
+        this -> node_id = node_id;
         this -> key = key;
         this -> marked = false;
         this -> degree = 0;
@@ -161,18 +172,18 @@ FibNode* FibHeap::extractMin()
     
     if (this -> min != NULL)
     {
-        int maxAuxSize = 2 * (((int)log2(this -> N + 1)) + 1);
+        int maxAuxSize = 5 * (((int)log2(this -> N + 1)) + 1);
         FibNode *aux[maxAuxSize + 1];
         for (int i=0;i<=maxAuxSize;i++) aux[i] = NULL;
         int maxDegree = 0;
-    
+        
         FibNode *curr = this -> min;
         
         do
         {
+            FibNode *next = curr -> f;
             int deg = curr -> degree;
-            FibNode *P = new FibNode(5);
-            (*P) = (*curr);
+            FibNode *P = curr;
             while (aux[deg] != NULL)
             {
                 FibNode *Q = aux[deg];
@@ -199,13 +210,13 @@ FibNode* FibHeap::extractMin()
                     P -> c -> b = Q;
                     Q -> f = P -> c;
                 }
-            
+                
                 deg++;
                 P -> degree = deg;
             }
             aux[deg] = P;
             if (deg > maxDegree) maxDegree = deg;
-            curr = curr -> f;
+            curr = next;
         } while (curr != this -> min);
         
         
@@ -241,10 +252,15 @@ void FibHeap::decreaseKey(FibNode *n, int newKey)
             curr -> marked = false;
             
             curr -> p = NULL;
-            FibNode *prev = curr -> b;
-            FibNode *next = curr -> f;
-            prev -> f = next;
-            next -> b = prev;
+            if (curr -> f == curr) parent -> c = NULL;
+            else
+            {
+                FibNode *prev = curr -> b;
+                FibNode *next = curr -> f;
+                prev -> f = next;
+                next -> b = prev;
+                if (parent -> c == curr) parent -> c = prev;
+            }
             
             FibNode *last = this -> min -> b;
             last -> f = curr;
@@ -261,17 +277,22 @@ void FibHeap::decreaseKey(FibNode *n, int newKey)
                 curr -> marked = false;
                 
                 curr -> p = NULL;
-                FibNode *prev = curr -> b;
-                FibNode *next = curr -> f;
-                prev -> f = next;
-                next -> b = prev;
+                if (curr -> f == curr) parent -> c = NULL;
+                else
+                {
+                    FibNode *prev = curr -> b;
+                    FibNode *next = curr -> f;
+                    prev -> f = next;
+                    next -> b = prev;
+                    if (parent -> c == curr) parent -> c = prev;
+                }
                 
                 FibNode *last = this -> min -> b;
                 last -> f = curr;
                 curr -> b = last;
                 this -> min -> b = curr;
                 curr -> f = this -> min;
-
+                
             }
             if (parent -> p != NULL) parent -> marked = true;
         }
