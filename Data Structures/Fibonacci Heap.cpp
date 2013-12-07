@@ -26,8 +26,8 @@ typedef unsigned long long llu;
  Fibonacci Heap data structure satisfying the heap property, with highly efficient asymptotic bounds.
  Useful for a priority queue implementation in Dijkstra's and Prim's algorithms.
  Complexity:    O(1) for insert, first and merge
- O(1) amortized for decreaseKey
- O(log N) amortized for extractMin and delete
+                O(1) amortized for decreaseKey
+                O(log N) amortized for extractMin and delete
 */
 
 struct FibNode
