@@ -33,14 +33,12 @@ typedef unsigned long long llu;
 struct FibNode
 {
     int key;
-    int node_id;
     bool marked;
     int degree;
     FibNode *b, *f, *p, *c;
     
     FibNode()
     {
-        this -> node_id = 0;
         this -> key = 0;
         this -> marked = false;
         this -> degree = 0;
@@ -49,7 +47,6 @@ struct FibNode
     
     FibNode(int node_id, int key)
     {
-        this -> node_id = node_id;
         this -> key = key;
         this -> marked = false;
         this -> degree = 0;
