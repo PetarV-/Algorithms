@@ -45,7 +45,7 @@ struct FibNode
         this -> b = this -> f = this -> p = this -> c = NULL;
     }
     
-    FibNode(int node_id, int key)
+    FibNode(int key)
     {
         this -> key = key;
         this -> marked = false;
