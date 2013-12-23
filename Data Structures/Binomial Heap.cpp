@@ -265,7 +265,6 @@ int main()
     bh -> insert(new BinNode(4));
     
     bh -> decreaseKey(x, 2);
-    bh -> Delete(y);
     
     while (!bh -> isEmpty())
     {
