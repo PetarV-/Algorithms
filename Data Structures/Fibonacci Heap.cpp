@@ -258,6 +258,7 @@ void FibHeap::decreaseKey(FibNode *n, int newKey)
                 next -> b = prev;
                 if (parent -> c == curr) parent -> c = prev;
             }
+            parent -> degree = parent -> degree - 1;
             
             FibNode *last = this -> min -> b;
             last -> f = curr;
@@ -283,6 +284,7 @@ void FibHeap::decreaseKey(FibNode *n, int newKey)
                     next -> b = prev;
                     if (parent -> c == curr) parent -> c = prev;
                 }
+                parent -> degree = parent -> degree - 1;
                 
                 FibNode *last = this -> min -> b;
                 last -> f = curr;
