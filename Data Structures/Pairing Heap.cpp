@@ -26,8 +26,8 @@ typedef unsigned long long llu;
  Pairing Heap data structure satisfying the heap property, with highly efficient asymptotic bounds.
  Often outperforming Fibonacci heaps, and simple to implement.
  Complexity:    O(1) for insert, first and merge
-                O(log n) amortized for extractMin and delete
-                O(log n) amortized for decreaseKey - not known if bound is tight; Omega(log log N).
+ O(log n) amortized for extractMin and delete
+ O(log n) amortized for decreaseKey - not known if bound is tight; Omega(log log N).
 */
 
 struct PNode
@@ -139,8 +139,9 @@ PNode* PHeap::extractMin()
     
     while (oldList != NULL)
     {
+        PNode *next = oldList -> f;
         heapFIFO.push(new PHeap(oldList));
-        oldList = oldList -> f;
+        oldList = next;
     }
     
     while (!heapFIFO.empty())
@@ -233,6 +234,7 @@ int main()
     {
         printf("%d ", ph -> extractMin() -> key);
     }
+    
     printf("\n");
     return 0;
 }
