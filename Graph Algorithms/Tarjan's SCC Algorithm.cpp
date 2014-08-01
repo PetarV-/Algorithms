@@ -63,7 +63,7 @@ void tarjanDFS(int i)
         {
             w = Stack.top(); Stack.pop();
             component[w] = numComponents;
-            inStack[w]=false;
+            onStack[w]=false;
         } while (i != w && !Stack.empty());
         numComponents++;
     }
