@@ -18,7 +18,7 @@
 #include <complex>
 #define MID (left+right)/2
 #define MAX_N 1000001
-#define MAX_TREE 2000005
+#define MAX_TREE (MAX_N << 2)
 #define INF 987654321
 using namespace std;
 typedef long long lld;
