@@ -30,7 +30,7 @@ typedef long long lld;
  
  Input: Set of points (from file) + Cost of each segment (from command line)
  Returns: The minimal cost (to command line) + segments used (to file)
- Complexity: O(n^3) time, O(n^2) memory
+ Complexity: O(n^2) time, O(n^2) memory
 */
 
 int n = 1, c;
@@ -49,7 +49,7 @@ double err[MAX_N][MAX_N]; //err[i][j] - total error by approximating points [i..
 double a[MAX_N][MAX_N]; //a[i][j] - the slope of the segment used to approximate points [i..j]
 double b[MAX_N][MAX_N]; //b[i][j] - the y-intercept of the segment used to approximate points [i..j]
 
-int xySums[MAX_N], xSums[MAX_N], ySums[MAX_N], xSqrSums[MAX_N]; //prefix sums for x_i * y_i, x_i, y_i and x_i * x_i
+int xySums[MAX_N], xSums[MAX_N], ySums[MAX_N], xSqrSums[MAX_N], ySqrSums[MAX_N]; //prefix sums for x_i * y_i, x_i, y_i, x_i * x_i and y_i * y_i
 
 double minCost[MAX_N]; //minCost[j] - optimal cost for points [1..j]
 int retIndex[MAX_N]; //the last segment in the optimal case for points [1..j] is [retIndex[j], j]
@@ -84,6 +84,7 @@ inline void Precalculate()
         ySums[i] = ySums[i-1] + pts[i].y;
         xSqrSums[i] = xSqrSums[i-1] + pts[i].x * pts[i].x;
         xySums[i] = xySums[i-1] + pts[i].x * pts[i].y;
+        ySqrSums[i] = ySqrSums[i-1] + pts[i].y * pts[i].y;
     }
     
     for (int i=1;i<=n;i++)
@@ -95,14 +96,12 @@ inline void Precalculate()
             int xSum = xSums[j] - xSums[i-1];
             int ySum = ySums[j] - ySums[i-1];
             int xSqrSum = xSqrSums[j] - xSqrSums[i-1];
+            int ySqrSum = ySqrSums[j] - ySqrSums[i-1];
             
             a[i][j] = ((nn * xySum - xSum * ySum) * 1.0) / ((nn * xSqrSum - xSum * xSum) * 1.0);
             b[i][j] = ((ySum - a[i][j] * xSum) * 1.0) / (nn * 1.0);
             
-            for (int k=i;k<=j;k++)
-            {
-                err[i][j] += (pts[k].y - a[i][j] * pts[k].x - b[i][j]) * (pts[k].y - a[i][j] * pts[k].x - b[i][j]);
-            }
+            err[i][j] = a[i][j] * a[i][j] * xSqrSum + 2.0 * a[i][j] * b[i][j] * xSum - 2.0 * a[i][j] * xySum + b[i][j] * b[i][j] - 2.0 * b[i][j] * ySum + ySqrSum;
         }
     }
 }
