@@ -18,9 +18,7 @@
 #include <map>
 #include <complex>
 
-#define MAX_N 50001
-#define LIMIT 1000000
-#define MID (left+right)/2
+#define MAX_N 1001
 
 #define DPRINTC(C) printf(#C " = %c\n", (C))
 #define DPRINTS(S) printf(#S " = %s\n", (S))
@@ -31,10 +29,6 @@
 using namespace std;
 typedef long long lld;
 typedef unsigned long long llu;
-
-#define MAX_N 1001
-using namespace std;
-typedef long long lld;
 
 int n, m;
 int match_score, mismatch_score, gap_score;
