@@ -101,7 +101,7 @@ inline void Precalculate()
             a[i][j] = ((nn * xySum - xSum * ySum) * 1.0) / ((nn * xSqrSum - xSum * xSum) * 1.0);
             b[i][j] = ((ySum - a[i][j] * xSum) * 1.0) / (nn * 1.0);
             
-            err[i][j] = a[i][j] * a[i][j] * xSqrSum + 2.0 * a[i][j] * b[i][j] * xSum - 2.0 * a[i][j] * xySum + b[i][j] * b[i][j] - 2.0 * b[i][j] * ySum + ySqrSum;
+            err[i][j] = a[i][j] * a[i][j] * xSqrSum + 2.0 * a[i][j] * b[i][j] * xSum - 2.0 * a[i][j] * xySum + nn * b[i][j] * b[i][j] - 2.0 * b[i][j] * ySum + ySqrSum;
         }
     }
 }
