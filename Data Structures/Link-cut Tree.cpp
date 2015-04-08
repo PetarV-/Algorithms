@@ -228,7 +228,8 @@ inline int LCA(int p, int q)
 
 int main()
 {
-    // This is the code I used for SPOJ problem Dynamic LCA (DYNALCA)
+    // This is the code I used for the problem Dynamic LCA (DYNALCA)
+    // on Sphere Online Judge (SPOJ)
     scanf("%d%d", &n, &m);
     
     for (int i=1;i<=n;i++) make_tree(i);
