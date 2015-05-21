@@ -196,10 +196,10 @@ int main()
         cout << "Encode(" << test[i] << ") = " << encode(test[i]) << endl;
     }
     
-    cout << encode("this is eir") << endl;
+    cout << encode("this is real") << endl;
     cout << decode("1100001010110011111101100111110010010111100") << endl;
     
-    cout << decode(encode("this is eir")) << endl;
+    cout << decode(encode("this is real")) << endl;
     
     return 0;
 }
