@@ -41,10 +41,10 @@ using namespace std;
      x_1, x_2, ..., x_n, s_1, s_2, ..., s_m >= 0
  
  Every linear program can be translated into slack form; the parameters to specify are:
- - the number of variables, n, and the number of constraints, m;
- - the matrix A = [[A_11, A_12, ..., A_1n], ..., [A_m1, A_m2, ..., A_mn]];
- - the vector b = [b_1, b_2, ..., b_m];
- - the vector c = [c_1, c_2, ..., c_n] and the constant v.
+     - the number of variables, n, and the number of constraints, m;
+     - the matrix A = [[A_11, A_12, ..., A_1n], ..., [A_m1, A_m2, ..., A_mn]];
+     - the vector b = [b_1, b_2, ..., b_m];
+     - the vector c = [c_1, c_2, ..., c_n] and the constant v.
  
  Complexity:    O(m^(n/2)) worst case
                 O(n + m) average case (common)
