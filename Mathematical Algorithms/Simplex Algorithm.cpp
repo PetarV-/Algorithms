@@ -31,14 +31,14 @@ using namespace std;
  
  N.B. The linear program has to be given in *slack form*, which is as follows:
  maximise
- c_1 * x_1 + c_2 * x_2 + ... + c_n * x_n + v
+     c_1 * x_1 + c_2 * x_2 + ... + c_n * x_n + v
  subj. to
- a_11 * x_1 + a_12 * x_2 + ... + a_1n * x_n + b_1 = s_1
- a_21 * x_1 + a_22 * x_2 + ... + a_2n * x_n + b_2 = s_2
- ...
- a_m1 * x_1 + a_m2 * x_2 + ... + a_mn * x_n + b_m = s_m
+     a_11 * x_1 + a_12 * x_2 + ... + a_1n * x_n + b_1 = s_1
+     a_21 * x_1 + a_22 * x_2 + ... + a_2n * x_n + b_2 = s_2
+     ...
+     a_m1 * x_1 + a_m2 * x_2 + ... + a_mn * x_n + b_m = s_m
  and
- x_1, x_2, ..., x_n, s_1, s_2, ..., s_m >= 0
+     x_1, x_2, ..., x_n, s_1, s_2, ..., s_m >= 0
  
  Every linear program can be translated into slack form; the parameters to specify are:
  - the number of variables, n, and the number of constraints, m;
@@ -47,7 +47,7 @@ using namespace std;
  - the vector c = [c_1, c_2, ..., c_n] and the constant v.
  
  Complexity:    O(m^(n/2)) worst case
- O(n + m) average case (common)
+                O(n + m) average case (common)
 */
 
 int n, m;
