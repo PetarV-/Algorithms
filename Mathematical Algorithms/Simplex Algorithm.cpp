@@ -51,7 +51,7 @@ using namespace std;
 */
 
 int n, m;
-double A[MAX_N][MAX_M], b[MAX_M], c[MAX_N], v;
+double A[MAX_M][MAX_N], b[MAX_M], c[MAX_N], v;
 int N[MAX_N], B[MAX_M]; // nonbasic & basic
 
 // pivot yth variable around xth constraint
@@ -252,7 +252,7 @@ inline int initialise_simplex()
                 break;
             }
         }
-        if (ok) break;
+        if (ok) continue;
         for (int i=0;i<m;i++)
         {
             if (j == B[i])
