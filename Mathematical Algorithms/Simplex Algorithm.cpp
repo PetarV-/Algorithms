@@ -158,7 +158,8 @@ inline int iterate_simplex()
 // Returns 0 if OK, -1 if INFEASIBLE
 inline int initialise_simplex()
 {
-    int k = -1, min_b = -1;
+    int k = -1;
+    double min_b = -1;
     for (int i=0;i<m;i++)
     {
         if (k == -1 || b[i] < min_b)
