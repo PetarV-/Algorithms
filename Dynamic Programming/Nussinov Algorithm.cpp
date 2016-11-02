@@ -50,7 +50,7 @@ int nussinov(int i, int j)
 {
     if (dp[i][j] != -1) return dp[i][j];
     
-    if (i >= j)
+    if (i >= j - 1)
     {
         dp[i][j] = 0;
         return 0;
