@@ -256,7 +256,7 @@ TreeNode* SplayTree::find(int x)
         }
     }
     if (ret != NULL) splay(ret);
-    else splay(prev);
+    else if (prev != NULL) splay(prev);
     return ret;
 }
 
@@ -319,6 +319,10 @@ TreeNode* subtree_min(TreeNode *subRoot)
 void SplayTree::Delete(int x)
 {
     TreeNode *del = find(x);
+    if (del == NULL)
+    {
+        return;
+    }
     TreeNode *L = del -> left;
     TreeNode *R = del -> right;
     if (L == NULL && R == NULL)
