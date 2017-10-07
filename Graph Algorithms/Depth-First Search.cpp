@@ -34,10 +34,12 @@ inline void DFS(int start)
 {
     stack<int> dfs_stek;
     dfs_stek.push(start);
-    while (!dfs_stek.empty())
-    {
+   while (!dfs_stek.empty())
+   {
         int xt = dfs_stek.top();
         dfs_stek.pop();
+     if(!mark[xt])
+     {
         mark[xt] = true;
         printf("Traversing Node ID %d\n", xt);
         for (int i=0;i<graf[xt].adj.size();i++)
@@ -48,7 +50,8 @@ inline void DFS(int start)
                 mark[graf[xt].adj[i]] = true;
             }
         }
-    }
+     }
+   }
 }
 
 int main()
