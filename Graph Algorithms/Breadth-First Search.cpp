@@ -1,62 +1,55 @@
-/*
- Petar 'PetarV' Velickovic
- Algorithm: Breadth-First Search
-*/
-
-#include <stdio.h>
-#include <math.h>
-#include <string.h>
-#include <iostream>
-#include <vector>
-#include <list>
-#include <string>
-#include <algorithm>
-#include <queue>
-#include <stack>
-#include <set>
-#include <map>
-#include <complex>
-#define MAX_N 5001
+#include<bits/stdc++.h>
 using namespace std;
-typedef long long lld;
 
-struct Node
+vector<vector<int>> g;
+vector<bool> v;
+void addEdge(int a, int b)
 {
-    vector<int> adj;
-};
-Node graf[MAX_N];
-bool mark[MAX_N];
-
-//Algoritam za pretrazivanje grafa u sirinu
-//Slozenost: O(V + E)
-
-inline void BFS(int start)
-{
-    queue<int> bfs_queue;
-    bfs_queue.push(start);
-    while (!bfs_queue.empty())
-    {
-        int xt = bfs_queue.front();
-        bfs_queue.pop();
-        mark[xt] = true;
-        printf("Traversing Node ID %d\n", xt);
-        for (int i=0;i<graf[xt].adj.size();i++)
-        {
-            if (!mark[graf[xt].adj[i]])
-            {
-                bfs_queue.push(graf[xt].adj[i]);
-                mark[graf[xt].adj[i]] = true;
-            }
-        }
-    }
+ g[a].push_back(b);
+ //add g[b].push_back(a); for undirected graph
 }
-
+void bfs(int u)
+{
+ queue<int> q;
+ q.push(u);
+ v[u]=true;
+ 
+ while(!q.empty())
+ {
+  int f=q.front();
+  q.pop();
+  cout << f << endl;
+  
+  for(auto i=g[f].begin() ; i!=g[f].end() ;i++ )
+      {
+   if(!v[*i])
+   {
+    q.push(*i);
+    v[*i]=true;
+   }
+      }
+       
+ }
+ 
+}
 int main()
 {
-    graf[0].adj.push_back(1);
-    graf[0].adj.push_back(2);
-    graf[2].adj.push_back(3);
-    graf[3].adj.push_back(4);
-    BFS(0);
-    return 0;
+ int n=5;
+ v.assign(n,false); // initializing vaiables
+ g.assign(n,vector<int> ());
+ 
+ addEdge(0,1);// adding edges
+ addEdge(1,2);
+ addEdge(1,3);
+ addEdge(1,4);
+ addEdge(0,4);
+ 
+ for(int i=0 ;i<n; i++)// iterating over all vertices
+ {
+   if(!v[i])
+   {
+       bfs(i);
+   }
+ }
+ 
 }
