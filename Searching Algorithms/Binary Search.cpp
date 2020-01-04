@@ -32,7 +32,7 @@ inline int b_search(int left, int right, int x)
     int j = right;
     while (i < j)
     {
-        int mid = (i+j)/2;
+        int mid = left+(right-left)/2; //Suitable for bigger values of n 
         if (niz[mid] == x) return mid;
         if (niz[mid] < x) i = mid+1;
         else j = mid-1;
