@@ -176,6 +176,7 @@ inline int find_root(int v)
 inline void link(int v, int w) // attach v's root to w
 {
     if (v == -1 || w == -1) return;
+    expose(v); 
     expose(w);
     LCT[v].L = w; // the root can only have right children in its splay tree, so no need to check
     LCT[w].P = v;
