@@ -191,7 +191,6 @@ inline void cut(int v)
     if (LCT[v].L != -1)
     {
         LCT[LCT[v].L].P = -1;
-        LCT[LCT[v].L].PP = -1;
         LCT[v].L = -1;
     }
 }
