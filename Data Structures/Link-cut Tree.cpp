@@ -159,6 +159,7 @@ inline void expose(int v)
         }
         LCT[w].R = v;
         LCT[v].P = w;
+        LCT[v].PP = -1;
         splay(v);
     }
 }
