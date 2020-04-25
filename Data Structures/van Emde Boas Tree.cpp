@@ -193,6 +193,8 @@ void vEB::Delete(llu x)
                 llu nextMinLo = cluster[summary -> min()] -> min();
                 llu nextMin = nextMinHi * subSize + nextMinLo;
                 this -> Delete(nextMin);
+                if ((*M) == (*m))
+                    (*M) = nextMin; 
                 (*m) = nextMin;
             }
         }
