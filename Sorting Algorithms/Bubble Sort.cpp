@@ -1,60 +1,70 @@
 /*
- Petar 'PetarV' Velickovic
+ Maria Luísa Mendes
  Algorithm: Bubble Sort
 */
 
-#include <stdio.h>
-#include <math.h>
-#include <string.h>
 #include <iostream>
-#include <vector>
-#include <list>
-#include <string>
-#include <algorithm>
-#include <queue>
-#include <stack>
-#include <set>
-#include <map>
-#include <complex>
-#define MAX_N 5001
 using namespace std;
-typedef long long lld;
 
-int n;
-int niz[MAX_N];
+void bubbleSort(int array[], int size, int order){
 
-//Bubble sort algoritam za sortiranje niza
-//Slozenost: O(n^2)
+  if(order == 1){
+    for(int i=0; i < size-1; i++){
+      int flag = 0;
 
-inline void bubbleSort()
-{
-    bool swapped;
-    int it = 0;
-    do
-    {
-        swapped = false;
-        for (int i=0;i<n-it-1;i++)
-        {
-            if (niz[i] > niz[i+1])
-            {
-                swap(niz[i], niz[i+1]);
-                swapped = true;
-            } 
+      for(int j=0; j<size-1-i; j++){
+        if(array[j] > array[j+1]){
+          swap(array[j+1], array[j]);
+          flag = 1;
         }
-        it++;
-    } while (swapped);
+      }
+      if(flag == 0){
+        break;
+      }
+    }
+  }
+
+  else if(order == 2){
+    for(int i=0; i < size-1; i++){
+      int flag = 0;
+
+      for(int j=0; j<size-1-i; j++){
+        if(array[j] < array[j+1]){
+          swap(array[j+1], array[j]);
+          flag = 1;
+        }
+      }
+      if(flag == 0){
+        break;
+      }
+    }
+  }
+
 }
 
-int main()
-{
-    n = 5;
-    niz[0] = 4;
-    niz[1] = 2;
-    niz[2] = 5;
-    niz[3] = 1;
-    niz[4] = 3;
-    bubbleSort();
-    for (int i=0;i<n;i++) printf("%d ",niz[i]);
-    printf("\n");
-    return 0;
+int main() {
+  int size;
+  int order;
+
+  cout << "Enter the size of the array:" << endl;
+	cin >> size;
+
+	int array[size];
+
+	cout << "Enter the elements of the array:" << endl;
+	for(int i = 0; i < size; i++){
+	  cin >> array[i];
+  }
+
+  cout << "What type of ordering do you want: \n 1 - Ascending \n 2 - Descending" << endl;
+  cin >> order;
+
+	bubbleSort(array, size, order);
+
+	cout << "The sorted array is:" <<endl;
+	for (int i = 0; i < size; i++) {
+		cout << array[i] << " ";
+  }
+
+  return 0;
 }
