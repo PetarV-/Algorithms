@@ -1,5 +1,8 @@
 ## This includes implementation of approximation of polynomial and trigonometric functions using basis functions in C++.
 
+Both are interactive programs where user can specify the corresponding functions or use default polynomial/trigonometric functions for the analysis.
+
+
 [poly_function_fit](https://github.com/Poojan-ml/Algorithms/blob/Poojan-ml-patch-1/basis_function_approximation/poly_function_fit.cpp) approximates a user given polynomial by using polynomial basis function.
 
 **How do this work?**
@@ -24,9 +27,13 @@ value of user specified Trigonometric function on those points(**_y_**). And usi
 
 `g++ trig_function_fit.cpp  basis_functions.cpp matrix_functions.cpp`
 
-Both of these work very well and almost(slight difference due to the noise) approximates the real target function with least mean square error. 
+Both of these work very well and almost(slight difference due to the noise) approximates the real target function with **_least_** mean square error. 
 
+Here are the snaps of sample examples for both.
 
-Both are interactive programs where user can specify the corresponding functions or go ahead with default polynomial/trigonometric functions.
+![](https://github.com/Poojan-ml/Algorithms/blob/Poojan-ml-patch-1/basis_function_approximation/poly_snap.PNG?raw=true)
+
+![](https://github.com/Poojan-ml/Algorithms/blob/Poojan-ml-patch-1/basis_function_approximation/trigo_snap.PNG?raw=true)
+
 
 
